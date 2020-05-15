@@ -1,7 +1,16 @@
+html, body {
+  height: 100%;
+}
+
 body {
 	font-family: 'Montserrat' !important;
 	font-size: 16px;
-	line-height: 1;
+  line-height: 1;
+  background: -webkit-linear-gradient(45deg, rgba(0, 146, 204, 0.9), rgba(229, 57, 53, 0.9));
+	background: -o-linear-gradient(45deg, rgba(0, 146, 204, 0.9), rgba(229, 57, 53, 0.9));
+	background: -moz-linear-gradient(45deg, rgba(0, 146, 204, 0.9), rgba(229, 57, 53, 0.9));
+  background: linear-gradient(45deg, rgba(0, 146, 204, 0.9), rgba(229, 57, 53, 0.9));
+  background-repeat: no-repeat;
 }
 
 textarea {
@@ -12,15 +21,17 @@ textarea {
 	background-color: lightgrey;
 	border-left: 1px solid black;
 	padding: 10px;
-	width: 80%;
+  width: 80%;
+  border-top: 1px solid white;
+	border-bottom: 1px solid white;
 }
 
 .jumbotron {
 	text-align: center;
 	background-color: transparent;
-	color: black;
+	color: white;
 	border-radius: 0;
-	border-bottom: 10px solid black;
+	border-bottom: 7px solid rgba(255, 255, 255, 0.8);
 }
 
 .description {
@@ -35,33 +46,35 @@ textarea {
 .row {
 	white-space: pre-wrap;
 	height: 80px;
-	border-top: 1px solid white;
 	display: flex;
 	justify-content: center;
 }
 
 .hour {
-	background-color: #ffffff;
+	background-color: rgba(255, 255, 255, 0.9);
 	color: #000000;
 	border-top: 1px dashed #000000;
 	width: 6%;
 	text-align: end;
-	padding: 10px 5px;
+  padding: 10px 5px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  
 }
 
 .past {
-	background-color: #d3d3d3;
+	background-color: rgba(172, 172, 172, 0.3);
 	color: black;
 }
 
 .present {
-	background-color: #ff6961;
-	color: black;
+	background-color: rgba(229, 57, 53, 0.3);
+	color: white;
 }
 
 .future {
-	background-color: #77dd77;
-	color: black;
+	background-color: rgba(0, 146, 204, 0.3);
+	color: white;
 }
 
 .saveBtn {
@@ -79,7 +92,8 @@ textarea {
 	background-color: #06aed5;
 	color: white;
 	width: 10%;
-	height: 80px;
+  height: 80px;
+  margin: 10px 0;
 }
 
 .saveBtn:hover {
