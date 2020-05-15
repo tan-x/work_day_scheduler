@@ -1,7 +1,9 @@
 var today = moment().format('ddd, MMMM Do YYYY');
+var hourTime = moment().format('H');
 $('#currentDay').text(today);
 var hourArray = ['9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM'];
 var timeText;
+var hourId = 9;
 
 // look for saved text in localStorage, fill timeText object if available
 if (localStorage.getItem('timeText') === null){
@@ -11,38 +13,49 @@ if (localStorage.getItem('timeText') === null){
     timeText = JSON.parse(localStorage.getItem('timeText'));
 }
 
+
 for (i = 0; i < hourArray.length; i++) {
     // create row in container
     var row = $('<div>');
     row.attr('class', 'row');
-    row.attr('data-timeslot', `${i}`);
+    row.attr('data-timeslot', [i]);
     $('.container').append(row);
 
-    // create hour div in row
+    var rowAppend = `.row[data-timeslot=${[i]}]`;
+    // create hour div in row0
     var hour = $('<div>');
     hour.attr('class', 'hour');
-    hour.attr('data-timeslot', `${i}`);
+    hour.attr('data-timeslot', [i]);
     hour.text(hourArray[i]);
-    $(`.row[data-timeslot=${[i]}]`).append(hour);
+    $(rowAppend).append(hour);
 
     // create text area in row
     var textArea = $('<textarea>');
-    textArea.attr('id', [i]);
+
+    textArea.attr('id', hourId);
     // add text from object if any is in storage
-    textArea.text(timeText[i]);
-    $(`.row[data-timeslot=${[i]}]`).append(textArea);
+    textArea.text(timeText[hourId++]);
+    var currentTime = parseInt(textArea.attr('id'));
+    if (currentTime < hourTime) {
+        textArea.attr('class', 'past');
+    } else if (currentTime > hourTime) {
+        textArea.attr('class', 'future');
+    } else {
+        textArea.attr('class', 'present');
+    }
+    $(rowAppend).append(textArea);
 
     // create button in row
     var saveBtn = $('<button>');
     saveBtn.attr('class', 'saveBtn');
     saveBtn.attr('id', [i]);
     saveBtn.html('<i class="fas fa-save"></i>');
-    $(`.row[data-timeslot=${[i]}]`).append(saveBtn);
+    $(rowAppend).append(saveBtn);
 }
 
 // save input text on click
-$('.saveBtn').on('click', function(e) {
-    var idIndex = $(this).attr('id');
+$('.saveBtn').on('click', function() {
+    var idIndex = parseInt($(this).attr('id')) + 9;
     // add textarea value to object with id as key
     timeText[idIndex] = $(`textarea#${idIndex}`).val();
     // stringify object and add to localStorage
