@@ -22,7 +22,7 @@ textarea {
 	background-color: lightgrey;
 	border-left: 1px solid black;
 	padding: 10px;
-	width: 80%;
+	width: 70%;
 	border-top: 1px solid white;
 	border-bottom: 1px solid white;
 }
@@ -32,7 +32,8 @@ textarea {
 	background-color: transparent;
 	color: white;
 	border-radius: 0;
-	border-bottom: 7px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 7px solid rgba(255, 255, 255, 0.8);
+  padding: 10px;
 }
 
 .description {
@@ -51,6 +52,10 @@ textarea {
 	justify-content: center;
 }
 
+.container {
+  align-items: center;
+}
+
 .hour {
 	background-color: rgba(255, 255, 255, 0.9);
 	color: #000000;
@@ -59,7 +64,8 @@ textarea {
 	text-align: end;
 	padding: 10px 5px;
 	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  min-width: 55px;
 }
 
 .past {
@@ -83,7 +89,9 @@ textarea {
 	border-bottom-right-radius: 15px;
 	background-color: #06aed5;
 	color: white;
-	width: 6%;
+  width: 6%;
+  padding: 6px;
+  min-width: 40px;
 }
 
 .saveAllBtn {
@@ -91,7 +99,7 @@ textarea {
 	border-radius: 15px;
 	background-color: #06aed5;
 	color: white;
-	width: 10%;
+	width: 20%;
 	height: 80px;
 	margin: 10px 0;
 }
@@ -102,5 +110,5 @@ textarea {
 }
 
 .saveIcon {
-	margin-right: 6px;
+	margin: 0 6px;
 }
